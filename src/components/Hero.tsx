@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Search, Globe, Menu } from 'lucide-react';
 import Link from 'next/link';
+import BlurText from './BlurText';
 
 export default function Hero() {
   return (
@@ -55,8 +56,37 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="font-sans text-5xl md:text-8xl font-bold leading-tight max-w-4xl"
         >
-          Preserving the <br />
-          <span className="font-serif font-normal italic">Soul of Serumpun</span>
+          <BlurText
+
+  text="Preserving the"
+
+  delay={150}
+
+  animateBy="words"
+
+  direction="top"
+
+  onAnimationComplete={() => {}}
+
+  className="text-8xl mb-8"
+
+/>
+
+<BlurText
+
+  text="Soul of Serumpun"
+
+  delay={150}
+
+  animateBy="words"
+
+  direction="top"
+
+  onAnimationComplete={() => {}}
+
+  className="text-8xl mb-8"
+
+/>
         </motion.h1>
 
         <motion.p 
