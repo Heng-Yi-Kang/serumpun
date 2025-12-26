@@ -1,6 +1,6 @@
-import Hero from '@/components/Hero';
-import Intro from '@/components/Intro';
-import ChatBot from '@/components/ChatBot';
+import Hero from "@/components/Hero";
+import Intro from "@/components/Intro";
+import ChatBot from "@/components/ChatBot";
 
 export default function Home() {
   return (
@@ -11,4 +11,3 @@ export default function Home() {
     </main>
   );
 }
-

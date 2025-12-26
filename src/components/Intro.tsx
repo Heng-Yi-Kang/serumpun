@@ -20,7 +20,7 @@ export default function Intro() {
                 <div className="space-y-6 text-lg text-stone-300 leading-relaxed font-light">
                     <p>
                         Deep in the heart of the Malay Archipelago lies a shared heritage that binds us together. 
-                        <strong>Serumpun</strong>—meaning "of the same stock" or "cluster"—celebrates the 
+                        <strong> Serumpun</strong>—meaning "of the same stock" or "cluster"—celebrates the 
                         intricate tapestry of the Kerinchi community found across boundaries.
                     </p>
                     <p>
