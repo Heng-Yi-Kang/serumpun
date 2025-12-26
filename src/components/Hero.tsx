@@ -54,7 +54,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-8 max-w-lg text-lg text-stone-200"
+          className="mt-8 max-w-lg text-lg text-(var(--foreground))"
         >
           Explore the rich intangible cultural heritage of the Kerinchi
           community, a journey through time and tradition.

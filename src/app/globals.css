@@ -56,8 +56,13 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: 40 30% 98%; /* HSL for Parchment */
+  --primary: 197 34% 15%;   /* HSL for Heritage Indigo */
+  --secondary: 28 65% 44%;  /* HSL for Terracotta */
+  --accent: 34 57% 62%;     /* HSL for Ochre */
+  --foreground: 0 0% 18%;   /* HSL for Charcoal Text */
+   --radius: 0.625rem;
+  /*--background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -87,7 +92,7 @@
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: oklch(0.708 0 0); */
 }
 
 .dark {
