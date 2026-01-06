@@ -25,12 +25,24 @@ export default function ChatBot() {
   const [isLoading, setIsLoading] = useState(false);
 
   const responses: Record<string, string> = {
-    "kerinchi people":
-      "The Kerinchi people, also known as the Orang Kerinci, are an ethnic group native to the Kerinchi Valley in Jambi, Sumatra. They have a rich history dating back thousands of years and are known for their unique culture, including the 'Incung' script, which is one of the oldest scripts in Indonesia.",
+    "migration of kerinchi people":
+      "The migration of the Kerinchi people from Sumatra, Indonesia, to Malaysia has been a long-term process primarily driven by five key factors:\n\n" +
+      "1. **Economic Factors**: Seeking higher incomes and improved living standards due to limited opportunities in their homeland.\n" +
+      "2. **Social Networks**: Existing family networks in Malaysia act as a significant pull factor.\n" +
+      "3. **Cultural Compatibility**: Shared similarities with the local Malay population facilitate smooth integration.\n" +
+      "4. **Historical Presence**: Settlements dating back to the late 19th century, like Kampung Kerinchi.\n" +
+      "5. **Demographic Factors**: Disparities in development between Malaysia and Indonesia.\n\n" +
+      "In essence, Kerinchi migration is driven by economic hardship and the draw of Malaysian opportunities, strengthened by social and historical ties.",
+
+    "asal dari mana":
+      "Masyarakat Kerinchi berasal dari daerah Kota Kerinchi yang terletak di Provinsi Jambi, Sumatera, Indonesia. Mereka merupakan suku tertua di provinsi Jambi dan dikenal sebagai masyarakat perantau yang telah lama menetap di berbagai wilayah, termasuk Malaysia.\n\n" +
+      "Gelombang migrasi besar bermula antara tahun 1900 hingga 1915. Kehadiran mereka di Malaysia ditandai dengan penempatan seperti Kampung Kerinchi di Bangsar dan Kampung Abdullah Hukum. Kesamaan budaya dengan masyarakat Melayu tempatan memudahkan proses asimilasi mereka ke dalam komuniti Malaysia.",
+
     migration:
-      "The migration of the Kerinchi people to the Malay Peninsula, particularly to areas like Pantai Dalam (Kampung Kerinchi) in Kuala Lumpur, occurred in various waves. Many sought better economic opportunities and brought with them their traditions, culinary heritage like Rendang, and social structures.",
+      "The migration of the Kerinchi people to the Malay Peninsula, particularly to Pantai Dalam (Kampung Kerinchi) in Kuala Lumpur, occurred in waves. Many brought with them traditions like Rendang and social structures.",
+
     music:
-      "Traditional Kerinchi music often features instruments like the 'Gendang' and 'Gong'. One of the most famous cultural expressions is the 'Tari Piring' or Plate Dance, which, while associated with the broader Minangkabau culture, is also deeply integrated into Kerinchi celebrations with its own local variations.",
+      "Traditional Kerinchi music often features instruments like the 'Gendang' and 'Gong'. One of the most famous expressions is the 'Tari Piring' or Plate Dance.",
   };
 
   const simulateStreaming = async (text: string) => {
