@@ -114,7 +114,7 @@ export default function ChatBot() {
           className="bg-stone-900 rounded-2xl border border-white/10 overflow-hidden shadow-2xl"
         >
           {/* Chat Area */}
-          <div className="h-[400px] md:h-[500px] overflow-y-auto p-6 space-y-4 scrollbar-thin scrollbar-thumb-stone-700 scrollbar-track-transparent">
+          <div className="max-h-[400px] md:max-h-[500px] overflow-y-auto p-6 space-y-4 scrollbar-thin scrollbar-thumb-stone-700 scrollbar-track-transparent">
             {messages.map((msg) => (
               <div
                 key={msg.id}
