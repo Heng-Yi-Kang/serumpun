@@ -2,12 +2,25 @@
 import { Search, Globe, Menu, X, User } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../context/AuthContext";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logout } = useAuth();
+  const pathname = usePathname();
+
+  const isActive = (path: string) => pathname === path;
+  const getLinkClasses = (path: string) =>
+    `text-sm font-medium transition-colors ${
+      isActive(path) ? "text-amber-500" : "hover:text-stone-300"
+    }`;
+
+  const getMobileLinkClasses = (path: string) =>
+    `text-lg font-medium transition-colors ${
+      isActive(path) ? "text-amber-500" : ""
+    }`;
 
   return (
     <nav className="relative z-50 flex items-center justify-between px-6 py-6 md:px-12 text-white">
@@ -18,10 +31,7 @@ export default function Nav() {
 
       {/* Desktop Menu */}
       <div className="hidden md:flex items-center gap-8 bg-white/10 backdrop-blur-md px-8 py-3 rounded-full border border-white/20">
-        <Link
-          href="/"
-          className="text-sm font-medium hover:text-stone-300 transition-colors"
-        >
+        <Link href="/" className={getLinkClasses("/")}>
           Home
         </Link>
         {/* <Link
@@ -30,10 +40,7 @@ export default function Nav() {
         >
           Heritage
         </Link> */}
-        <Link
-          href="/community"
-          className="text-sm font-medium text-amber-400 hover:text-amber-300 transition-colors"
-        >
+        <Link href="/community" className={getLinkClasses("/community")}>
           Community
         </Link>
         {/* <Link
@@ -47,10 +54,7 @@ export default function Nav() {
 
         {user ? (
           <>
-            <Link
-              href="/upload"
-              className="text-sm font-medium hover:text-stone-300 transition-colors"
-            >
+            <Link href="/upload" className={getLinkClasses("/upload")}>
               Upload
             </Link>
             <button
@@ -63,7 +67,7 @@ export default function Nav() {
         ) : (
           <Link
             href="/login"
-            className="text-sm font-medium hover:text-stone-300 transition-colors flex items-center gap-2"
+            className={`flex items-center gap-2 ${getLinkClasses("/login")}`}
           >
             <User className="w-4 h-4" />
             Login
@@ -95,7 +99,7 @@ export default function Nav() {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-20 right-6 w-64 bg-stone-900 border border-white/10 rounded-2xl p-6 shadow-2xl flex flex-col gap-4 md:hidden"
           >
-            <Link href="/" className="text-lg font-medium">
+            <Link href="/" className={getMobileLinkClasses("/")}>
               Home
             </Link>
             <Link href="/#intro" className="text-lg font-medium">
@@ -103,7 +107,7 @@ export default function Nav() {
             </Link>
             <Link
               href="/community"
-              className="text-lg font-medium text-amber-500"
+              className={getMobileLinkClasses("/community")}
             >
               Community
             </Link>
@@ -112,7 +116,10 @@ export default function Nav() {
             </Link>
             {user ? (
               <>
-                <Link href="/upload" className="text-lg font-medium">
+                <Link
+                  href="/upload"
+                  className={getMobileLinkClasses("/upload")}
+                >
                   Upload
                 </Link>
                 <button
@@ -123,7 +130,7 @@ export default function Nav() {
                 </button>
               </>
             ) : (
-              <Link href="/login" className="text-lg font-medium">
+              <Link href="/login" className={getMobileLinkClasses("/login")}>
                 Login
               </Link>
             )}
