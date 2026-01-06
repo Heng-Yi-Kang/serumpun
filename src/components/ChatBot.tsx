@@ -21,6 +21,7 @@ export default function ChatBot() {
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const responses: Record<string, string> = {
     "kerinchi people":
@@ -35,7 +36,6 @@ export default function ChatBot() {
     setIsTyping(true);
     const newMsgId = Date.now() + 1;
 
-    // Add an empty bot message first
     setMessages((prev) => [
       ...prev,
       { id: newMsgId, role: "bot", content: "" },
@@ -51,7 +51,7 @@ export default function ChatBot() {
           msg.id === newMsgId ? { ...msg, content: currentText } : msg
         )
       );
-      // Wait for a small delay to simulate typing
+
       await new Promise((resolve) =>
         setTimeout(resolve, 30 + Math.random() * 50)
       );
@@ -61,14 +61,14 @@ export default function ChatBot() {
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim() || isTyping) return;
+    if (!input.trim() || isTyping || isLoading) return;
 
     const userMsg: Message = { id: Date.now(), role: "user", content: input };
     setMessages((prev) => [...prev, userMsg]);
     const currentInput = input.toLowerCase().trim();
     setInput("");
 
-    // Find the best match
+    setIsLoading(true);
     let responseText =
       "I'm sorry, I don't have specific information about that in my current wisdom source. Try asking about 'Kerinchi people', 'migration', or 'music'.";
 
@@ -79,8 +79,8 @@ export default function ChatBot() {
       }
     }
 
-    // Small initial delay before starting to "stream"
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setIsLoading(false);
     await simulateStreaming(responseText);
   };
 
@@ -151,6 +151,20 @@ export default function ChatBot() {
                 </div>
               </div>
             ))}
+            {isLoading && (
+              <div className="flex gap-4">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 bg-red-800">
+                  <Bot className="w-5 h-5 text-white" />
+                </div>
+                <div className="p-4 rounded-2xl max-w-[80%] bg-stone-950 border border-white/10 text-stone-300 rounded-tl-none">
+                  <div className="flex gap-1.5 py-1 px-1">
+                    <div className="w-1.5 h-1.5 bg-stone-500 rounded-full animate-bounce [animation-duration:0.8s]" />
+                    <div className="w-1.5 h-1.5 bg-stone-500 rounded-full animate-bounce [animation-duration:0.8s] [animation-delay:0.2s]" />
+                    <div className="w-1.5 h-1.5 bg-stone-500 rounded-full animate-bounce [animation-duration:0.8s] [animation-delay:0.4s]" />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Input Area */}
@@ -166,7 +180,7 @@ export default function ChatBot() {
               />
               <button
                 type="submit"
-                disabled={!input.trim() || isTyping}
+                disabled={!input.trim() || isTyping || isLoading}
                 className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-red-700 hover:bg-red-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 <Send className="w-5 h-5" />
