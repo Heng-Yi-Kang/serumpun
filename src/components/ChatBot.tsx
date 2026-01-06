@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Send, Sparkles, User, Bot } from "lucide-react";
 import { motion } from "framer-motion";
+import GradientText from "./GradientText";
 
 type Message = {
   id: number;
@@ -99,9 +100,14 @@ export default function ChatBot() {
           >
             <Sparkles className="w-6 h-6 text-amber-500" />
           </motion.div>
-          <h2 className="text-3xl md:text-4xl font-serif text-white mb-4">
+          <GradientText
+            colors={["#FAB12F", "#FA812F", "#DD0303"]}
+            animationSpeed={3}
+            showBorder={false}
+            className="text-3xl md:text-4xl font-serif text-white mb-4"
+          >
             Ask Serumpun
-          </h2>
+          </GradientText>
           <p className="text-stone-400">
             Discover the unspoken stories and traditions of the Kerinchi people.
           </p>

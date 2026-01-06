@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import BlurText from "./BlurText";
 import Nav from "./Nav";
+import GradientText from "./GradientText";
 
 export default function Hero() {
   return (
@@ -40,14 +41,15 @@ export default function Hero() {
             className="text-8xl mb-8"
           />
 
-          <BlurText
-            text="Soul of Kerinchi"
-            delay={150}
-            animateBy="words"
-            direction="top"
-            onAnimationComplete={() => {}}
-            className="text-8xl mb-8"
-          />
+          <h1
+            className="
+            text-5xl md:text-8xl font-bold 
+            bg-gradient-to-r from-[#FAB12F] via-[#FA812F] to-[#DD0303] 
+            bg-clip-text text-transparent
+            "
+          >
+            Soul of Kerinchi
+          </h1>
         </motion.h1>
 
         <motion.p

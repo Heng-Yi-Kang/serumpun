@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import GradientText from "./GradientText";
 
 export default function Intro() {
   return (
