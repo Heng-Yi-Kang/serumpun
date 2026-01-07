@@ -38,10 +38,10 @@ export default function Hero() {
             animateBy="words"
             direction="top"
             onAnimationComplete={() => {}}
-            className="text-8xl mb-8"
+            className="text-7xl mb-8"
           />
 
-          <h1
+          <p
             className="
             text-5xl md:text-8xl font-bold 
             bg-gradient-to-r from-[#FAB12F] via-[#FA812F] to-[#DD0303] 
@@ -49,7 +49,7 @@ export default function Hero() {
             "
           >
             Soul of Kerinchi
-          </h1>
+          </p>
         </motion.h1>
 
         <motion.p

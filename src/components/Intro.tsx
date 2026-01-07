@@ -16,10 +16,21 @@ export default function Intro() {
           className="flex flex-col md:flex-row gap-16 items-center"
         >
           <div className="md:w-1/2">
-            <h2 className="font-serif text-4xl md:text-5xl text-white mb-8">
-              The Spirit of{" "}
-              <span className="italic text-red-500">Kerinchi</span>
-            </h2>
+            <div className="flex items-center border border-white/20">
+              <h2 className="font-serif text-4xl md:text-5xl text-white mb-8 p-4 rounded-lg">
+                The Spirit of
+              </h2>
+
+              <GradientText
+                colors={["#FAB12F", "#FA812F", "#DD0303"]}
+                animationSpeed={3}
+                showBorder={false}
+                className="italic text-5xl font-bold  ml-0 -top-5"
+              >
+                Kerinchi
+              </GradientText>
+            </div>
+
             <div className="space-y-6 text-lg text-stone-300 leading-relaxed font-light">
               <p>
                 Deep in the heart of the Malay Archipelago lies a shared
@@ -65,7 +76,6 @@ export default function Intro() {
           </div>
 
           <div className="md:w-1/2 relative">
-            {/* Decorative Elements */}
             <div className="absolute -top-10 -left-10 w-32 h-32 border-t border-l border-white/20 opacity-50" />
             <div className="absolute -bottom-10 -right-10 w-32 h-32 border-b border-r border-white/20 opacity-50" />
 
@@ -77,7 +87,7 @@ export default function Intro() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 priority
               />
-              {/* Gradient overlay */}
+
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent opacity-60 pointer-events-none" />
             </div>
           </div>

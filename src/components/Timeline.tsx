@@ -3,31 +3,36 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Calendar, Anchor, Sparkles } from "lucide-react";
+import GradientText from "./GradientText";
 
 // Mock Data
 const TIMELINE_EVENTS = [
   {
     year: "19th Century",
     title: "Origins in Alam Kerinci",
-    description: "The journey begins in the highlands of Jambi, Sumatra (Alam Kerinci). Our ancestors cultivated rice and developed a unique culture rich in oral traditions and mystic arts.",
+    description:
+      "The journey begins in the highlands of Jambi, Sumatra (Alam Kerinci). Our ancestors cultivated rice and developed a unique culture rich in oral traditions and mystic arts.",
     icon: <MapPin className="w-6 h-6" />,
   },
   {
     year: "Late 1800s",
     title: "The Great Migration",
-    description: "Driven by the spirit of 'Merantau' (wandering), early Kerinchi pioneers sailed across the straits, seeking new opportunities in the Malay Peninsula.",
+    description:
+      "Driven by the spirit of 'Merantau' (wandering), early Kerinchi pioneers sailed across the straits, seeking new opportunities in the Malay Peninsula.",
     icon: <Anchor className="w-6 h-6" />,
   },
   {
     year: "1900s",
     title: "Settlement in KL",
-    description: "They opened land in what is now known as Kampung Kerinchi and Pantai Dalam. The area became a hub for trade, agriculture, and silat brotherhoods.",
+    description:
+      "They opened land in what is now known as Kampung Kerinchi and Pantai Dalam. The area became a hub for trade, agriculture, and silat brotherhoods.",
     icon: <Calendar className="w-6 h-6" />,
   },
   {
     year: "Present Day",
     title: "The Serumpun Initiative",
-    description: "Today, we launch Serumpun to digitally preserve this intangible heritage. We are the bridge between the memories of the past and the technology of the future.",
+    description:
+      "Today, we launch Serumpun to digitally preserve this intangible heritage. We are the bridge between the memories of the past and the technology of the future.",
     icon: <Sparkles className="w-6 h-6" />,
   },
 ];
@@ -49,11 +54,23 @@ export default function Timeline() {
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-amber-900/20 via-stone-950 to-stone-950" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-serif text-white mb-4">
-            A Journey Through <span className="text-amber-500 italic">Time</span>
-          </h2>
-          <p className="text-stone-400">Tracing the footsteps of the Kerinchi people.</p>
+        <div className="text-center mb-16 flex flex-col justify-center">
+          <div className="flex self-center items-center justify-center w-1/2">
+            <h2 className="text-3xl md:text-5xl font-serif text-white mb-4">
+              A Journey Through
+            </h2>
+            <GradientText
+              colors={["#FEF3E2", "#FFEF5F", "#FF9D00"]}
+              animationSpeed={3}
+              showBorder={false}
+              className="italic text-5xl font-bold ml-0 -top-2 ml-3"
+            >
+              Time
+            </GradientText>
+          </div>
+          <p className="text-stone-400">
+            Tracing the footsteps of the Kerinchi people.
+          </p>
         </div>
 
         {/* 1. HORIZONTAL LINE SECTION */}
@@ -62,10 +79,12 @@ export default function Timeline() {
           <div className="absolute top-1/2 left-0 w-full h-1 bg-stone-800 -translate-y-1/2 rounded-full" />
 
           {/* Orange Progress Line (animates width based on active index) */}
-          <motion.div 
+          <motion.div
             className="absolute top-1/2 left-0 h-1 bg-amber-500 -translate-y-1/2 rounded-full"
             initial={{ width: "0%" }}
-            animate={{ width: `${(activeIndex / (TIMELINE_EVENTS.length - 1)) * 100}%` }}
+            animate={{
+              width: `${(activeIndex / (TIMELINE_EVENTS.length - 1)) * 100}%`,
+            }}
             transition={{ duration: 0.5 }}
           />
 
@@ -76,12 +95,16 @@ export default function Timeline() {
                 key={index}
                 onClick={() => setActiveIndex(index)} // Allow clicking to jump
                 className={`relative w-4 h-4 rounded-full transition-all duration-300 z-10 flex items-center justify-center
-                  ${index <= activeIndex ? "bg-amber-500 scale-125 shadow-[0_0_15px_rgba(245,158,11,0.5)]" : "bg-stone-700"}
+                  ${
+                    index <= activeIndex
+                      ? "bg-amber-500 scale-125 shadow-[0_0_15px_rgba(245,158,11,0.5)]"
+                      : "bg-stone-700"
+                  }
                 `}
               >
                 {/* Pulse effect for active dot */}
                 {index === activeIndex && (
-                    <div className="absolute inset-0 w-full h-full bg-amber-500 rounded-full animate-ping opacity-75" />
+                  <div className="absolute inset-0 w-full h-full bg-amber-500 rounded-full animate-ping opacity-75" />
                 )}
               </button>
             ))}
@@ -89,7 +112,7 @@ export default function Timeline() {
         </div>
 
         {/* 2. CONTENT DISPLAY SECTION */}
-        <div className="max-w-3xl mx-auto text-center h-[300px]"> 
+        <div className="max-w-3xl mx-auto text-center h-[300px]">
           {/* Fixed height prevents layout jumping */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -113,7 +136,7 @@ export default function Timeline() {
               <h3 className="text-3xl font-serif text-white mb-4">
                 {TIMELINE_EVENTS[activeIndex].title}
               </h3>
-              
+
               <p className="text-lg text-stone-300 leading-relaxed font-light">
                 {TIMELINE_EVENTS[activeIndex].description}
               </p>
