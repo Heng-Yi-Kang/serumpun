@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import { useAuth } from "@/context/AuthContext";
 import { User, Lock, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -94,6 +95,15 @@ export default function LoginPage() {
               <span>Sign In</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
+
+            <div className="text-center mt-4">
+              <Link
+                href="/register"
+                className="text-stone-400 hover:text-amber-500 text-sm transition-colors"
+              >
+                Don't have an account? Register here
+              </Link>
+            </div>
           </form>
         </motion.div>
       </div>
