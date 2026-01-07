@@ -64,7 +64,6 @@ export default function RegisterPage() {
       <Nav />
 
       <div className="flex-1 flex items-center justify-center p-6 relative overflow-hidden py-12">
-        {/* Background Gradients */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-30 pointer-events-none">
           <div className="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] bg-amber-900/40 rounded-full blur-[120px]" />
           <div className="absolute bottom-[10%] right-[10%] w-[50vw] h-[50vw] bg-stone-800/40 rounded-full blur-[100px]" />
@@ -73,7 +72,7 @@ export default function RegisterPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="w-full max-w-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl z-10"
+          className="w-full max-w-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl z-10 hover:shadow-[0_0_30px_rgba(250,177,47,0.5)] transition-all duration-700 hover:scale-105"
         >
           <div className="text-center mb-8">
             <h1 className="text-3xl font-serif text-white mb-2">
@@ -250,9 +249,8 @@ export default function RegisterPage() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-lg bg-stone-900 border border-amber-500/20 rounded-2xl p-8 shadow-2xl overflow-hidden"
+              className="relative w-full max-w-lg bg-stone-900 border border-amber-500/20 rounded-2xl p-8 shadow-2xl overflow-hidden "
             >
-              {/* Decorative background element */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-bl-full pointer-events-none" />
 
               <div className="flex flex-col items-center text-center relative z-10">
