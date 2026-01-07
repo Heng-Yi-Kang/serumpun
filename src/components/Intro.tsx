@@ -16,7 +16,7 @@ export default function Intro() {
           className="flex flex-col md:flex-row gap-16 items-center"
         >
           <div className="md:w-1/2">
-            <div className="flex items-center border border-white/20">
+            <div className="flex items-center">
               <h2 className="font-serif text-4xl md:text-5xl text-white mb-8 p-4 rounded-lg">
                 The Spirit of
               </h2>
