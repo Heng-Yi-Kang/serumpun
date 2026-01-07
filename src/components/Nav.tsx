@@ -1,5 +1,5 @@
 "use client";
-import { Search, Globe, Menu, X, User } from "lucide-react";
+import { Globe, Menu, X, User } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
@@ -26,15 +26,19 @@ export default function Nav() {
   return (
     <nav className="relative z-50 flex items-center justify-between px-6 py-6 md:px-12 text-white">
       <div className="flex items-center gap-2">
-        <p
-          className="
-            text-xl font-bold 
-            bg-gradient-to-r from-[#FA812F] via-[#FA812F] to-[#FFEF5F] 
-            bg-clip-text text-transparent
-            "
-        >
-          SERUMPUN
-        </p>
+        {/* ADDED LINK HERE */}
+        <Link href="/">
+          <p
+            className="
+              text-xl font-bold 
+              bg-gradient-to-r from-[#FA812F] via-[#FA812F] to-[#FFEF5F] 
+              bg-clip-text text-transparent
+              cursor-pointer
+              "
+          >
+            SERUMPUN
+          </p>
+        </Link>
       </div>
 
       {/* Desktop Menu */}
@@ -42,24 +46,14 @@ export default function Nav() {
         <Link href="/" className={getLinkClasses("/")}>
           Home
         </Link>
+        
+        <Link href="/#stories" className="text-sm font-medium hover:text-stone-300 transition-colors">
+          Community
+        </Link>
+
         <Link href="/archive" className={getLinkClasses("/archive")}>
           Archive
         </Link>
-        {/* <Link
-          href="/#intro"
-          className="text-sm font-medium hover:text-stone-300 transition-colors"
-        >
-          Heritage
-        </Link> */}
-        <Link href="/community" className={getLinkClasses("/community")}>
-          Community
-        </Link>
-        {/* <Link
-          href="/#chat"
-          className="text-sm font-medium hover:text-stone-300 transition-colors"
-        >
-          Ask Serumpun
-        </Link> */}
 
         <div className="h-4 w-px bg-white/30" />
 
@@ -90,7 +84,6 @@ export default function Nav() {
           <span className="text-xs uppercase tracking-widest opacity-80 cursor-pointer hover:text-white">
             EN
           </span>
-          <Search className="h-4 w-4 opacity-80 cursor-pointer" />
         </div>
       </div>
 
@@ -117,8 +110,8 @@ export default function Nav() {
               Heritage
             </Link>
             <Link
-              href="/community"
-              className={getMobileLinkClasses("/community")}
+              href="/#stories"
+              className="text-lg font-medium"
             >
               Community
             </Link>

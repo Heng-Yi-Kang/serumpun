@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Quote } from "lucide-react";
+import { Quote, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link"; // Imported Link
 
 // Mock Data for the Vibe Check
 const STORIES = [
@@ -45,7 +46,8 @@ export default function StoriesCarousel() {
   }, []);
 
   return (
-    <section className="relative bg-stone-900 py-24 border-t border-white/5 overflow-hidden">
+    // Added id="stories" for navigation
+    <section id="stories" className="relative bg-stone-900 py-24 border-t border-white/5 overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         <div className="mb-12 text-center">
           <h2 className="text-3xl md:text-4xl font-serif text-white mb-4">
@@ -56,7 +58,7 @@ export default function StoriesCarousel() {
           </p>
         </div>
 
-        <div className="relative h-[400px] w-full max-w-4xl mx-auto">
+        <div className="relative min-h-[500px] md:h-[400px] w-full max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
@@ -86,20 +88,33 @@ export default function StoriesCarousel() {
               </div>
 
               {/* Text Section */}
-              <div className="md:w-3/5 p-8 md:p-12 flex flex-col justify-center relative">
-                <Quote className="absolute top-8 left-8 w-12 h-12 text-white/5" />
-                <p className="text-lg md:text-2xl text-stone-200 leading-relaxed font-light italic">
-                  "{STORIES[index].story}"
-                </p>
-                <div className="mt-8 flex gap-2">
-                  {STORIES.map((_, i) => (
-                    <div
-                      key={i}
-                      className={`h-1 rounded-full transition-all duration-300 ${
-                        i === index ? "w-8 bg-amber-500" : "w-2 bg-stone-600"
-                      }`}
-                    />
-                  ))}
+              <div className="md:w-3/5 p-8 md:p-12 flex flex-col justify-between relative">
+                 <div>
+                    <Quote className="w-12 h-12 text-white/5 mb-6" />
+                    <p className="text-lg md:text-2xl text-stone-200 leading-relaxed font-light italic">
+                    "{STORIES[index].story}"
+                    </p>
+                 </div>
+                
+                <div className="mt-8 flex items-center justify-between">
+                    <div className="flex gap-2">
+                        {STORIES.map((_, i) => (
+                            <div
+                            key={i}
+                            className={`h-1 rounded-full transition-all duration-300 ${
+                                i === index ? "w-8 bg-amber-500" : "w-2 bg-stone-600"
+                            }`}
+                            />
+                        ))}
+                    </div>
+
+                    {/* NEW BUTTON ADDED HERE */}
+                    <Link 
+                        href="/community"
+                        className="flex items-center gap-2 text-sm font-medium text-amber-500 hover:text-amber-400 transition-colors"
+                    >
+                        Share Your Story <ArrowRight className="w-4 h-4" />
+                    </Link>
                 </div>
               </div>
             </motion.div>

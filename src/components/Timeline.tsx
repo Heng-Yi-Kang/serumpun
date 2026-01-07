@@ -54,21 +54,22 @@ export default function Timeline() {
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-amber-900/20 via-stone-950 to-stone-950" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center mb-16 flex flex-col justify-center">
-          <div className="flex self-center items-center justify-center w-1/2">
-            <h2 className="text-3xl md:text-5xl font-serif text-white mb-4">
+        <div className="text-center mb-16 flex flex-col justify-center items-center">
+          {/* UPDATED: Removed w-1/2, added flex-wrap and gap for better centering */}
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <h2 className="text-3xl md:text-5xl font-serif text-white">
               A Journey Through
             </h2>
             <GradientText
               colors={["#FEF3E2", "#FFEF5F", "#FF9D00"]}
               animationSpeed={3}
               showBorder={false}
-              className="italic text-5xl font-bold ml-0 -top-2 ml-3"
+              className="italic text-5xl font-bold -top-1" // Adjusted className
             >
               Time
             </GradientText>
           </div>
-          <p className="text-stone-400">
+          <p className="text-stone-400 mt-4">
             Tracing the footsteps of the Kerinchi people.
           </p>
         </div>
