@@ -5,6 +5,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../context/AuthContext";
+import GradientText from "./GradientText";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,14 +26,24 @@ export default function Nav() {
   return (
     <nav className="relative z-50 flex items-center justify-between px-6 py-6 md:px-12 text-white">
       <div className="flex items-center gap-2">
-        <Globe className="h-8 w-8" />
-        <span className="text-xl font-bold tracking-wider">SERUMPUN</span>
+        <p
+          className="
+            text-xl font-bold 
+            bg-gradient-to-r from-[#FA812F] via-[#FA812F] to-[#FFEF5F] 
+            bg-clip-text text-transparent
+            "
+        >
+          SERUMPUN
+        </p>
       </div>
 
       {/* Desktop Menu */}
       <div className="hidden md:flex items-center gap-8 bg-white/10 backdrop-blur-md px-8 py-3 rounded-full border border-white/20">
         <Link href="/" className={getLinkClasses("/")}>
           Home
+        </Link>
+        <Link href="/archive" className={getLinkClasses("/archive")}>
+          Archive
         </Link>
         {/* <Link
           href="/#intro"
